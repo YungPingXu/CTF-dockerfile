@@ -13,8 +13,14 @@ docker build . -t ubuntu-22.04
 讓當前目錄與 /home 裡面的內容同步  
 其中一邊只要內容有更動，也會反映到另外一邊  
 並且設定進入 container 時的預設路徑為 /home  
+
+**Mac 電腦**
 ```sh
 docker run -it --privileged --cap-add=SYS_PTRACE --name ubuntu-22.04 --mount type=bind,source=`pwd`,target=/home --workdir /home ubuntu-22.04:latest
+```
+**Windows 電腦**
+```sh
+docker run -it --privileged --cap-add=SYS_PTRACE --name ubuntu-22.04 --mount type=bind,source=%CD%,target=/home --workdir /home ubuntu-22.04:latest
 ```
 進到 container 裡後，設定 fish ternimal 顯示完整路徑  
 ```sh
