@@ -50,4 +50,10 @@ RUN pip3 install pwntools pycryptodome flask django
 
 RUN gem install seccomp-tools one_gadget
 RUN ln -s /usr/local/lib/python3.10/dist-packages/bin/ROPgadget /bin/ROPgadget
+
+# 處理字元編碼問題
+ENV LC_TYPE=en_US.UTF-8
+RUN apt install -y locales
+RUN locale-gen en_US.UTF-8
+
 CMD ["/bin/fish"]
