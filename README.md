@@ -6,7 +6,7 @@ M1/M2 晶片的話則不能跑 pwn 的部分
 **第一次執行時：**
 ### 建立 docker image
 ```sh
-docker build . -t ubuntu-22.04
+docker build . -t ubuntu-22.04-ctf
 ```
 ### 建立 docker container
 將當前目錄裡的內容 mount 到 /home  
@@ -16,11 +16,11 @@ docker build . -t ubuntu-22.04
 
 **Mac 電腦**
 ```sh
-docker run -it --privileged --cap-add=SYS_PTRACE --name ubuntu-22.04 --mount type=bind,source=`pwd`,target=/home --workdir /home ubuntu-22.04:latest
+docker run -it --privileged --cap-add=SYS_PTRACE --name ubuntu-22.04-ctf --mount type=bind,source=`pwd`,target=/home --workdir /home ubuntu-22.04-ctf:latest
 ```
 **Windows 電腦**
 ```sh
-docker run -it --privileged --cap-add=SYS_PTRACE --name ubuntu-22.04 --mount type=bind,source=%CD%,target=/home --workdir /home ubuntu-22.04:latest
+docker run -it --privileged --cap-add=SYS_PTRACE --name ubuntu-22.04-ctf --mount type=bind,source=%CD%,target=/home --workdir /home ubuntu-22.04-ctf:latest
 ```
 進到 container 裡後，設定 fish ternimal 顯示完整路徑  
 ```sh
@@ -29,9 +29,9 @@ echo "set fish_prompt_pwd_dir_length 0" > ~/.config/fish/config.fish
 **之後執行時：**
 ### 啟動 docker container
 ```sh
-docker start ubuntu-22.04
+docker start ubuntu-22.04-ctf
 ```
 ### 以 fish terminal 執行 container
 ```sh
-docker exec -it ubuntu-22.04 fish
+docker exec -it ubuntu-22.04-ctf fish
 ```

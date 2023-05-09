@@ -47,6 +47,9 @@ RUN git clone https://github.com/scwuaptx/Pwngdb.git ~/Pwngdb && \
 
 # 安裝 python3 套件，當想到某些常用的套件時可以加進來
 RUN pip3 install pwntools pycryptodome flask django
+# install angr
+RUN pip3 install angr angr-utils bingraphvis
+RUN apt install -y graphviz
 
 RUN gem install seccomp-tools one_gadget
 RUN ln -s /usr/local/lib/python3.10/dist-packages/bin/ROPgadget /bin/ROPgadget
